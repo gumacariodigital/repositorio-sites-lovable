@@ -49,13 +49,6 @@ function SectionHead({ eyebrow, title }: { eyebrow: string; title: string }) {
 }
 
 function Index() {
-  const [msg, setMsg] = useState("");
-  const submit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setMsg("Inscrição feita! Em breve você recebe o checklist.");
-    e.currentTarget.reset();
-  };
-
   return (
     <>
       <Progress />
@@ -67,7 +60,6 @@ function Index() {
               <a key={n.id} href={`#${n.id}`} className="text-sm font-semibold text-muted-foreground transition-colors hover:text-accent">{n.label}</a>
             ))}
           </nav>
-          <a href="#contato" className="rounded-full bg-coral px-5 py-2 text-sm font-semibold text-coral-foreground transition hover:brightness-95">Checklist grátis</a>
         </div>
       </header>
 
@@ -168,19 +160,6 @@ function Index() {
               <span className="eyebrow">Foto em breve</span>
             </div>
           </div>
-        </section>
-
-        {/* Contato */}
-        <section id="contato" className="mx-auto max-w-3xl px-5 py-24 text-center">
-          <p className="eyebrow">Newsletter</p>
-          <h2 className="mt-3 text-4xl md:text-5xl">Receba o checklist completo</h2>
-          <div className="rule mx-auto" />
-          <form onSubmit={submit} className="card-soft mx-auto flex max-w-xl flex-col gap-3 p-6 sm:flex-row">
-            <label htmlFor="email" className="sr-only">Seu e-mail</label>
-            <input id="email" type="email" required placeholder="seu@email.com" className="flex-1 rounded-full border bg-background px-5 py-3 outline-none focus-visible:ring-2 focus-visible:ring-ring" />
-            <button className="rounded-full bg-primary px-6 py-3 font-semibold text-primary-foreground transition hover:brightness-110">Inscrever</button>
-          </form>
-          <p role="status" className="mt-4 text-accent">{msg}</p>
         </section>
       </main>
 
